@@ -14,6 +14,7 @@
 <body>
 <div class="login-container">
     <div class="loginbox bg-white">
+        <form>
         <div class="loginbox-title">登录</div>
 
         <div class="loginbox-or">
@@ -29,11 +30,12 @@
             <a href="">忘记密码?</a>
         </div>
         <div class="loginbox-submit">
-            <input type="button" class="btn btn-primary btn-block" value="Login">
+            <input type="button" class="btn btn-primary btn-block" id="login" value="登录">
         </div>
         <div class="loginbox-signup">
             <a href="#">注册账户</a>
         </div>
+        </form>
     </div>
     <div class="logobox">
         <p class="text-center" style="font-size: 18px;font-weight: bold;text-shadow: 3px 3px 3px #FF0000;font-style: italic;">拜师QQ:305530751</p>
@@ -58,6 +60,24 @@
         themefifthcolor = getThemeColorFromCss('themefifthcolor');
 
     });
+
+
+    $(function(){
+        $('#login').click(function(){
+            $.ajax({
+                url:"{:url('admin/index/login')}",
+                type:'post',
+                data:$('form').serialize(),
+                dataType:'json',
+                success:function (data) {
+
+
+                }
+            })
+            retrun false;
+        })
+    });
+
 </script>
 </body>
 <!--  /Body -->
